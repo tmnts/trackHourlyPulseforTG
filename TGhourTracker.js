@@ -1,5 +1,11 @@
 function trackHourlyPulse() {
-  const API_TOKEN = 'WHERE_YOUR_TOKEN_AT';
+
+  // Получаем токен из настроек скрипта (Project Settings -> Script Properties)
+const API_TOKEN = PropertiesService.getScriptProperties().getProperty('TGSTAT_TOKEN');
+
+if (!token) {
+  throw new Error("Please set TGSTAT_TOKEN in Project Settings > Script Properties");
+};
   const CHANNEL_ID = 'WHERE_YOUR_CHANNEL_AT'; 
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   
